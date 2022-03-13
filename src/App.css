@@ -13,6 +13,24 @@
   }
 }
 
+li.noStyle {
+  min-height: 32px;
+  cursor: pointer;
+  list-style-type: none;
+  list-style-position:inside;
+  margin:0;
+  padding:0;
+}
+
+ul.noStyle {
+  max-height: 200px;
+  overflow: scroll;
+  list-style-type: none;
+  list-style-position:inside;
+  margin:0;
+  padding:0;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,6 +44,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+label.smallText {
+  font-size: small;
 }
 
 @keyframes App-logo-spin {
