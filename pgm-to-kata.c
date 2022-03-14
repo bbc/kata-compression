@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-
+/**
+ * 
+ * */
 void convert_pgm (const char* file_name, int shades)
 {
   int shadesConversion = 256/shades;
@@ -41,6 +43,8 @@ void convert_pgm (const char* file_name, int shades)
 int main(int argc, char *argv[]) {
     //usage: <filename> <shades>
     if (argc != 3) {
+        printf("This will convert a 256 greyscale binary pgm file (P5) to a 16 greyscale ascii file for use in the Compression Kata.\n");
+        printf("Note that comments in the header are not supported.\n"); 
         printf("Usage: %s <pgm255-with-no-header-filename> <shades>", argv[0]);
         return 1;
     }

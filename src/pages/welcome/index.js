@@ -1,11 +1,10 @@
-import './App.css';
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ImageRenderer from './ImageRenderer';
+import ImageRenderer from '../../utils/ImageRenderer';
 
-const testcardImage = require('./test-images/testcard.pgm-240-180-16.lee').default;
-const helloImage = require('./test-images/hello.pgm-113-79-2.lee').default;
-const pepperImage = require('./test-images/pepper.pgm-256-256-16.lee').default;
+const testcardImage = require('../../test-images/testcard.pgm-240-180-16.lee').default;
+const helloImage = require('../../test-images/hello.pgm-113-79-2.lee').default;
+const pepperImage = require('../../test-images/pepper.pgm-256-256-16.lee').default;
 
 const Welcome = () => {
   

@@ -1,10 +1,9 @@
-import './App.css';
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ImageRenderer from './ImageRenderer';
+import ImageRenderer from '../../utils/ImageRenderer';
 import TestImagesList from './TestImagesList';
-import BusyScrim from './BusyScrim';
-import {CompressLossy, CompressGreyScale, CompressMono, DecompressGreyscale, DecompressMono} from './Compress';
+import BusyScrim from '../../utils/BusyScrim';
+import {CompressLossy, CompressGreyScale, CompressMono, DecompressGreyscale, DecompressMono} from '../../utils/Compress';
 
 const KataMain = () => {
   const [decompressedImageText, setDecompressedImageText] = useState('');
