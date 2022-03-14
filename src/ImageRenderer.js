@@ -1,7 +1,7 @@
 
 import React, { useRef, useEffect, useState } from 'react'
 
-const ImageRenderer = ({imageRepresentation, width=10, height=10, shades=2}) => {
+const ImageRenderer = ({imageRepresentation, width=10, height=10, shades=2, callback}) => {
 
     const [canvasContext, setCanvasContext] = useState();
 
@@ -11,8 +11,8 @@ const ImageRenderer = ({imageRepresentation, width=10, height=10, shades=2}) => 
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
 
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
+        const cwidth = canvas.clientWidth;
+        const cheight = canvas.clientHeight;
 
         // If it's resolution does not match change it
         if (canvas.width !== width || canvas.height !== height) {
@@ -20,7 +20,7 @@ const ImageRenderer = ({imageRepresentation, width=10, height=10, shades=2}) => 
             canvas.height = height;
         }
         setCanvasContext(context);
-    }, [])
+    }, [imageRepresentation])
     
     useEffect(() => {
         if (canvasContext && imageRepresentation) {
@@ -38,7 +38,8 @@ const ImageRenderer = ({imageRepresentation, width=10, height=10, shades=2}) => 
                 canvasContext.fillRect( x, y, 1, 1 );
             }
         }
-      }
+        callback && callback();
+    }
 
     const deriveColourForCell = (cellValue) => {
         if (!cellValue) cellValue = 0;
@@ -72,8 +73,8 @@ const ImageRenderer = ({imageRepresentation, width=10, height=10, shades=2}) => 
     }
 
     return (
-        <div>
-            <canvas style={{width: '100%'}} ref={canvasRef}/>
+        <div style={{width: width, height: height}}>
+            <canvas ref={canvasRef}/>
             { false && renderImage() }
         </div>
     );

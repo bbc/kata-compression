@@ -1,9 +1,9 @@
 //assume 0 start
-const CompressMono = (uncompressedImageText) => {
-    return Compress(uncompressedImageText, false);
+const CompressMono = async (uncompressedImageText) => {
+    return await Compress(uncompressedImageText, false);
 };
 
-const DecompressMono = (compressedImageText) => {
+const DecompressMono = async (compressedImageText) => {
     const uncompressedImage = [];
 
     const compressedImage = compressedImageText.split(',');
@@ -18,7 +18,7 @@ const DecompressMono = (compressedImageText) => {
     return uncompressedImage.join('');
 }
 
-const DecompressGreyscale = (compressedImageText) => {
+const DecompressGreyscale = async (compressedImageText) => {
     const uncompressedImage = [];
 
     const compressedImage = compressedImageText.split(',');
@@ -34,7 +34,7 @@ const DecompressGreyscale = (compressedImageText) => {
     return uncompressedImage.join('');
 }
 
-const CompressLossy = (uncompressedImageText, tol) => {
+const CompressLossy = async (uncompressedImageText, tol) => {
     const includeColor = true;
     const compressedImage = [];
 
@@ -58,7 +58,6 @@ const CompressLossy = (uncompressedImageText, tol) => {
         }
         currentTotal += parseInt(currentPixel, 16);
         currentRun++;
-        console.log(`${currentPixel} ${currentTotal} ${currentRun}`);
     });
     //And the last one
     compressedImage.push(generateCompressedField(includeColor, currentRun, referencePixel));
@@ -67,15 +66,14 @@ const CompressLossy = (uncompressedImageText, tol) => {
 };
 
 const pixelColoursApproximatelyEqual = (p1, p2, tol) => {
-    const vvv = Math.abs(parseInt(p1, 16)-parseInt(p2, 16))
-    return vvv < tol;
+    return Math.abs(parseInt(p1, 16)-parseInt(p2, 16)) < tol;
 }
 
-const CompressGreyScale = (uncompressedImageText) => {
-    return Compress(uncompressedImageText, true);
+const CompressGreyScale = async (uncompressedImageText) => {
+    return await Compress(uncompressedImageText, true);
 }
 
-const Compress = (uncompressedImageText, includeColor) => {
+const Compress = async (uncompressedImageText, includeColor) => {
     const compressedImage = [];
 
     const uncompressImageArray = uncompressedImageText.split('');
