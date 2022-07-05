@@ -8,7 +8,7 @@ const TestImagesList = ({selectionCallback}) => {
     
     useEffect(() => {
         setImages([
-            { name: '-New- (random)', width: 100, height: 50, shades: 2, content: Array(100*50).fill().map(() => 0).join('')},
+            { name: '-New-', width: 100, height: 50, shades: 2, content: Array(100*50).fill().map(() => 0).join('')},
             { name: 'hello', width: 113, height: 79, shades: 2, content: require('../../test-images/hello.pgm-113-79-2.lee').default},
             { name: 'bird', width: 321, height: 481, shades: 16, content: require('../../test-images/bird.pgm-321-481-16.lee').default},
             { name: 'baboon-2', width: 512, height: 512, shades: 2, content: require('../../test-images/baboon.pgm-512-512-2.lee').default},
