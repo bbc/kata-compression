@@ -69,16 +69,21 @@ const Welcome = () => {
         <p>As you will have gathered, this Kata uses a custom image format, loosely based on pgm</p>
         <p>I created a <a href='https://github.com/bbc/kata-compression/blob/main/src/utils/ImageRenderer.js'>basic renderer using React</a></p>
         <p>As a Bonus Challenge, why not try creating a renderer using a different technology?</p>
+        <p>Here's an extract of the one I created:</p>
         <pre>
-          {`canvasContext.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-          var pixelPos = 0;
-          for (var y = 0 ; y < height ; y++) {
-              for (var x = 0 ; x < width ; x++) {
-                  const colourForCell = deriveColourForCell(imageRepresentation[pixelPos++]);
-                  canvasContext.fillStyle = colourForCell;
-                  canvasContext.fillRect( x, y, 1, 1 );
-              }
-          }`}
+          {`
+const draw = (image) => {
+  canvasContext.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+  var pixelPos = 0;
+  for (var y = 0 ; y < height ; y++) {
+      for (var x = 0 ; x < width ; x++) {
+          const colourForCell = deriveColourForCell(imageRepresentation[pixelPos++]);
+          canvasContext.fillStyle = colourForCell;
+          canvasContext.fillRect( x, y, 1, 1 );
+      }
+  }
+  callback && callback();
+}`}
         </pre>
       </div>
     )
